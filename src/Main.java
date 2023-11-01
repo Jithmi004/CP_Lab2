@@ -1,22 +1,26 @@
 public class Main {
 
-    // Set rider arrival mean time to 2 seconds
-    static float riderArrivalMean = 2f * 1000;
-    // Set bus arrival mean time to 1 minutes
+    /*
+     * Inter-arrival times for buses and riders are exponentially distributed with a
+     * mean of 20 minutes and 30 seconds.
+     */
+
     static float busArrivalMean = 1 * 60f * 1000;
+    static float passengerArrivalMean = 2f * 1000;
 
     public static void main(String[] args) {
-        // Create rider generator to generate riders
-        PassengerSpawner rG = new PassengerSpawner(riderArrivalMean);
-        // Create bus generator to generate busses
-        BusSpawner bG = new BusSpawner(busArrivalMean);
+        /*
+         * BusSpawner and PassengerSpawner runnable instances wil be created to spawn
+         * busses and passengers
+         */
+        PassengerSpawner passengerSpawner = new PassengerSpawner(passengerArrivalMean);
+        BusSpawner busSpawner = new BusSpawner(busArrivalMean);
 
-        // Create the generator threads
-        Thread rGT = new Thread(rG);
-        Thread bGT = new Thread(bG);
+        // Spawner threads are created and started
+        Thread busSpawnerThread = new Thread(busSpawner);
+        Thread passengerSpawnerThread = new Thread(passengerSpawner);
+        busSpawnerThread.start();
+        passengerSpawnerThread.start();
 
-        // Start the generator threads
-        rGT.start();
-        bGT.start();
     }
 }

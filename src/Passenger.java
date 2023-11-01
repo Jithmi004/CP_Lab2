@@ -1,5 +1,5 @@
 public class Passenger implements Runnable {
-    // Index of the current passenger
+    // Count of total passengerThreads generated
     public static int totPassengerId = 1;
     int passengerId;
 
@@ -10,36 +10,40 @@ public class Passenger implements Runnable {
     @Override
     public void run() {
         try {
-            // Enter the bus stop. Only 50 can enter the bus stop at a time
+            /*
+             * Passenger attempts to enter the bus stop, with a limit of 50 riders at a
+             * time.
+             */
             BusStop.enterBusStopSemaphore.acquire();
 
-            // If bus has not arrived, increment the number of riders waiting to board the
-            // bus
-            // If a bus has arrived at the bus stop, the thread won't be able to get this
-            // mutex as the bus has it
+            /*
+             * Entering the boarding area if a bus has not yet arrived and increasing the
+             * count of passengers.
+             */
+
             BusStop.passengerCountMutex.acquire();
-            System.out.println("Rider Number: " + this.passengerId + " entered the bus stop");
+            System.out.println("Passenger : " + this.passengerId + " entered the bus stop.");
             BusStop.passengerCount++;
+
+            // Releasing the mutex for a bus or for another waiting passenger
             BusStop.passengerCountMutex.release();
 
-            // Sleep till the bus arrive
+            // Acquiring the semaphore to board the bus.
             BusStop.boardBusSemaphore.acquire();
-
-            // When the bus arrives one rider will be awakened. He enters the bus and allow
-            // one more rider to enter the bus
+            // Releasing the bus stop semaphore and boarding the bus
             BusStop.enterBusStopSemaphore.release();
-            board_bus();
-
-            // No need to lock this section as only one thread can go to this area at a time
+            boardBus();
             BusStop.passengerCount--;
 
-            if (0 == BusStop.passengerCount) {
-                System.out.println("All riders got in. Bus departing...");
-                // If all riders have boarded, wake the bus thread to depart
+            /*
+             * If all passengers are boarded, release busFullSemaphore to allow the bus to
+             * leave. If there are additional passengers waiting, release boardBussemaphore
+             * to allow them to board the bus.
+             */
+            if (BusStop.passengerCount == 0) {
+                System.out.println("All passengers in the boarding area entered the bus. Bus will be leaving.");
                 BusStop.busFullSemaphore.release();
             } else {
-                // When he boards the bus, allow one more rider to board the bus by releasing
-                // this semaphoer once
                 BusStop.boardBusSemaphore.release();
             }
 
@@ -49,11 +53,11 @@ public class Passenger implements Runnable {
 
     }
 
-    void board_bus() {
-        System.out.println("Rider Number: " + this.passengerId + " boarded");
+    private void boardBus() {
+        System.out.println("Passenger No: " + this.passengerId + " boarded the bus.");
     }
 
-    // Increment rider index
+    // Increment total passenger count
     public static void incrementPassengerId() {
         Passenger.totPassengerId++;
     }

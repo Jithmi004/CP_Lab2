@@ -1,27 +1,26 @@
 import java.util.Random;
 
 public class PassengerSpawner implements Runnable {
-    static Random random;
-    float riderArrivalMean;
+    static Random rand;
+    float meanArrivalTime;
 
-    PassengerSpawner(float riderArrivalMean) {
-        this.riderArrivalMean = riderArrivalMean;
-        random = new Random();
+    PassengerSpawner(float meanArrivalTime) {
+        this.meanArrivalTime = meanArrivalTime;
+        rand = new Random();
     }
 
     @Override
     public void run() {
         while (true) {
 
-            // Create passenger
-            Passenger passenger = new Passenger(Passenger.totPassengerId);
-            Thread passengerThread = new Thread(passenger);
-
-            // Start rider thread
+            // Spawn a passenger
+            Passenger newPassenger = new Passenger(Passenger.totPassengerId);
+            Thread passengerThread = new Thread(newPassenger);
             passengerThread.start();
+
             try {
-                // Sleep to obtain the specific inter arrival time mean
-                Thread.sleep(this.calcRiderSleepTime(riderArrivalMean, random));
+                // Sleeping to achieve the desired mean inter-arrival time.
+                Thread.sleep(this.calculatePassengerSleepTime(rand, meanArrivalTime));
                 Passenger.incrementPassengerId();
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -29,9 +28,15 @@ public class PassengerSpawner implements Runnable {
         }
     }
 
-    // Calculate thread sleeping time
-    private long calcRiderSleepTime(float riderArrivalMean, Random random) {
-        float lambda = 1 / riderArrivalMean;
-        return Math.round(-Math.log(1 - random.nextFloat()) / lambda);
+    // Calculates the sleep time for the passenger generation thread.
+
+    private long calculatePassengerSleepTime(Random randVal, float meanArrivalTime) {
+        // Calculate the arrival rate from the mean arrival time
+        float lambda = 1 / meanArrivalTime;
+
+        // Generate a random sleep time using exponential distribution
+        float randomFloat = randVal.nextFloat();
+        double negativeLog = -Math.log(1 - randomFloat);
+        return Math.round(negativeLog / lambda);
     }
 }
