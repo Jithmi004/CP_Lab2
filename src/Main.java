@@ -5,8 +5,8 @@ public class Main {
      * mean of 20 minutes and 30 seconds.
      */
 
-    static float busArrivalMean = 1 * 60f * 1000;
-    static float passengerArrivalMean = 2f * 1000;
+    static float busArrivalMean = 20 * 60f * 1000;
+    static float passengerArrivalMean = 30f * 1000;
 
     public static void main(String[] args) {
         /*
