@@ -1,0 +1,143 @@
+Bus No: 1 arrived at the bus stop and 0 passengers are waiting to board.
+Bus will leave since 0 passengers are waiting
+Bus No: 1 departed.
+Passenger : 1 entered the bus stop.
+Passenger : 2 entered the bus stop.
+Passenger : 3 entered the bus stop.
+Passenger : 4 entered the bus stop.
+Passenger : 5 entered the bus stop.
+Passenger : 6 entered the bus stop.
+Passenger : 7 entered the bus stop.
+Passenger : 8 entered the bus stop.
+Passenger : 9 entered the bus stop.
+Passenger : 8 entered the bus stop.
+Passenger : 9 entered the bus stop.
+Passenger : 10 entered the bus stop.
+Bus No: 2 arrived at the bus stop and 10 passengers are waiting to board.   
+Passenger No: 1 boarded the bus.
+Passenger No: 2 boarded the bus.
+Passenger No: 3 boarded the bus.
+Passenger No: 4 boarded the bus.
+Passenger No: 5 boarded the bus.
+Passenger No: 6 boarded the bus.
+Passenger No: 7 boarded the bus.
+Passenger No: 8 boarded the bus.
+Passenger No: 9 boarded the bus.
+Passenger No: 10 boarded the bus.
+All passengers in the boarding area entered the bus. Bus will be leaving.   
+Bus No: 2 departed.
+Passenger : 11 entered the bus stop.
+Passenger : 12 entered the bus stop.
+Passenger : 13 entered the bus stop.
+Passenger : 14 entered the bus stop.
+Passenger : 15 entered the bus stop.
+Passenger : 16 entered the bus stop.
+Passenger : 17 entered the bus stop.
+Passenger : 18 entered the bus stop.
+Passenger : 19 entered the bus stop.
+Passenger : 20 entered the bus stop.
+Passenger : 21 entered the bus stop.
+Passenger : 22 entered the bus stop.
+Passenger : 23 entered the bus stop.
+Passenger : 24 entered the bus stop.
+Passenger : 25 entered the bus stop.
+Passenger : 26 entered the bus stop.
+Passenger : 27 entered the bus stop.
+Passenger : 28 entered the bus stop.
+Passenger : 29 entered the bus stop.
+Passenger : 30 entered the bus stop.
+Passenger : 31 entered the bus stop.
+Passenger : 32 entered the bus stop.
+Passenger : 33 entered the bus stop.
+Passenger : 34 entered the bus stop.
+Passenger : 35 entered the bus stop.
+Passenger : 36 entered the bus stop.
+Passenger : 37 entered the bus stop.
+Passenger : 38 entered the bus stop.
+Passenger : 39 entered the bus stop.
+Passenger : 40 entered the bus stop.
+Passenger : 41 entered the bus stop.
+Passenger : 42 entered the bus stop.
+Passenger : 43 entered the bus stop.
+Passenger : 44 entered the bus stop.
+Passenger : 45 entered the bus stop.
+Passenger : 46 entered the bus stop.
+Passenger : 47 entered the bus stop.
+Passenger : 48 entered the bus stop.
+Passenger : 49 entered the bus stop.
+Passenger : 50 entered the bus stop.
+Passenger : 51 entered the bus stop.
+Passenger : 52 entered the bus stop.
+Passenger : 53 entered the bus stop.
+Passenger : 54 entered the bus stop.
+Bus No: 3 arrived at the bus stop and 44 passengers are waiting to board.
+Passenger No: 11 boarded the bus.
+Passenger No: 12 boarded the bus.
+Passenger No: 13 boarded the bus.
+Passenger No: 14 boarded the bus.
+Passenger No: 15 boarded the bus.
+Passenger No: 16 boarded the bus.
+Passenger No: 17 boarded the bus.
+Passenger No: 18 boarded the bus.
+Passenger No: 19 boarded the bus.
+Passenger No: 20 boarded the bus.
+Passenger No: 21 boarded the bus.
+Passenger No: 22 boarded the bus.
+Passenger No: 23 boarded the bus.
+Passenger No: 24 boarded the bus.
+Passenger No: 25 boarded the bus.
+Passenger No: 26 boarded the bus.
+Passenger No: 27 boarded the bus.
+Passenger No: 28 boarded the bus.
+Passenger No: 29 boarded the bus.
+Passenger No: 30 boarded the bus.
+Passenger No: 31 boarded the bus.
+Passenger No: 32 boarded the bus.
+Passenger No: 33 boarded the bus.
+Passenger No: 34 boarded the bus.
+Passenger No: 35 boarded the bus.
+Passenger No: 36 boarded the bus.
+Passenger No: 37 boarded the bus.
+Passenger No: 38 boarded the bus.
+Passenger No: 39 boarded the bus.
+Passenger No: 40 boarded the bus.
+Passenger No: 41 boarded the bus.
+Passenger No: 42 boarded the bus.
+Passenger No: 43 boarded the bus.
+Passenger No: 44 boarded the bus.
+Passenger No: 45 boarded the bus.
+Passenger No: 46 boarded the bus.
+Passenger No: 47 boarded the bus.
+Passenger No: 48 boarded the bus.
+Passenger No: 49 boarded the bus.
+Passenger No: 50 boarded the bus.
+Passenger No: 51 boarded the bus.
+Passenger No: 52 boarded the bus.
+Passenger No: 53 boarded the bus.
+Passenger No: 54 boarded the bus.
+All passengers in the boarding area entered the bus. Bus will be leaving.
+Bus No: 3 departed.
+Passenger : 55 entered the bus stop.
+Passenger : 56 entered the bus stop.
+Passenger : 57 entered the bus stop.
+Passenger : 58 entered the bus stop.
+Passenger : 59 entered the bus stop.
+Passenger : 60 entered the bus stop.
+Passenger : 61 entered the bus stop.
+Bus No: 4 arrived at the bus stop and 7 passengers are waiting to board.
+Passenger No: 55 boarded the bus.
+Passenger No: 56 boarded the bus.
+Passenger No: 57 boarded the bus.
+Passenger No: 58 boarded the bus.
+Passenger No: 59 boarded the bus.
+Passenger No: 60 boarded the bus.
+Passenger No: 61 boarded the bus.
+All passengers in the boarding area entered the bus. Bus will be leaving.
+Bus No: 4 departed.
+Passenger : 62 entered the bus stop.
+Passenger : 63 entered the bus stop.
+Passenger : 64 entered the bus stop.
+Passenger : 65 entered the bus stop.
+Passenger : 66 entered the bus stop.
+Passenger : 67 entered the bus stop.
+Passenger : 68 entered the bus stop.
