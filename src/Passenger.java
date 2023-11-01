@@ -10,11 +10,12 @@ public class Passenger implements Runnable {
         try {
             // Enter the bus stop. Only 50 can enter the bus stop at a time
             BusStop.inWaiting.acquire();
+            BusStop.mutex.acquire();
             System.out.println("Rider Number: " + this.riderIndex + " entered the bus stop");
 
             // If bus has not arrived, increment the number of riders waiting to board the bus
             // If a bus has arrived at the bus stop, the thread won't be able to get this mutex as the bus has it
-            BusStop.mutex.acquire();
+
             BusStop.riders++;
             BusStop.mutex.release();
 
