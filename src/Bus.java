@@ -1,41 +1,60 @@
 public class Bus implements Runnable {
-    int busIndex;
+    // Count of total bus threads generated
+    public static int totBusId = 1;
+    // Id of the bus
+    int busId;
 
-    Bus(int busIndex) {
-        this.busIndex = busIndex;
+    Bus(int busId) {
+        this.busId = busId;
     }
 
     @Override
     public void run() {
         try {
-
-            // Allow only the riders who were there when the bus arrived to board the bus
-            BusStop.mutex.acquire();
-            System.out.println("Bus arrived at the station. " + BusStop.riders + " riders waiting to board the bus");
-
-
-            if (BusStop.riders > 0) {
-                // Awake a rider waiting to board the bus
-                BusStop.busArrived.release();
-
-                // Sleep until all waiting riders have boarded the bus
-                BusStop.fullyBoarded.acquire();
+            /*
+             * Passenger count mutex is acquired to ensure that only the passengers who were
+             * present when the bus arrived are allowed to board the bus.
+             */
+            BusStop.passengerCountMutex.acquire();
+            announseArrival();
+            /*
+             * Handles the bus boarding process, ensuring that waiting passengers are
+             * allowed to board if there are any, and the bus leaves if there are no
+             * passengers
+             * at the bus stop.
+             */
+            if (BusStop.passengerCount > 0) {
+                BusStop.boardBusSemaphore.release();
+                BusStop.busFullSemaphore.acquire();
+            } else {
+                System.out.println("Bus will leave since 0 passengers are waiting");
             }
-            else {
-                System.out.println("Bus leaving because 0 riders in bus stop");
-            }
 
-            // Allow other riders to wait for the next bus and depart
-            BusStop.mutex.release();
-            depart();
+            /*
+             * The bus releases the mutex to allow other passengers to enter the waiting
+             * area or to accommodate another bus.
+             */
+
+            BusStop.passengerCountMutex.release();
+            announceDeparture();
 
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
 
-    void depart() {
-        System.out.println("Bus " + this.busIndex + " departed");
+    private void announceDeparture() {
+        System.out.println("Bus No: " + this.busId + " departed.");
+    }
+
+    private void announseArrival() {
+        System.out.println("Bus No: " + this.busId + " arrived at the bus stop and " + BusStop.passengerCount
+                + " passengers are waiting to board.");
+    }
+
+    // Increment the total bus count
+    public static void incrementBusId() {
+        Bus.totBusId++;
     }
 
 }

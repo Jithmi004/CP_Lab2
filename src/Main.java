@@ -7,9 +7,9 @@ public class Main {
 
     public static void main(String[] args) {
         // Create rider generator to generate riders
-        PassengerGenerator rG = new PassengerGenerator(riderArrivalMean);
+        PassengerSpawner rG = new PassengerSpawner(riderArrivalMean);
         // Create bus generator to generate busses
-        BusGenerator bG = new BusGenerator(busArrivalMean);
+        BusSpawner bG = new BusSpawner(busArrivalMean);
 
         // Create the generator threads
         Thread rGT = new Thread(rG);

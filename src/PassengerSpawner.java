@@ -1,10 +1,10 @@
 import java.util.Random;
 
-public class PassengerGenerator implements Runnable {
+public class PassengerSpawner implements Runnable {
     static Random random;
     float riderArrivalMean;
 
-    PassengerGenerator(float riderArrivalMean) {
+    PassengerSpawner(float riderArrivalMean) {
         this.riderArrivalMean = riderArrivalMean;
         random = new Random();
     }
@@ -14,7 +14,7 @@ public class PassengerGenerator implements Runnable {
         while (true) {
 
             // Create passenger
-            Passenger passenger = new Passenger(BusStop.riderIndex);
+            Passenger passenger = new Passenger(Passenger.totPassengerId);
             Thread passengerThread = new Thread(passenger);
 
             // Start rider thread
@@ -22,7 +22,7 @@ public class PassengerGenerator implements Runnable {
             try {
                 // Sleep to obtain the specific inter arrival time mean
                 Thread.sleep(this.calcRiderSleepTime(riderArrivalMean, random));
-                BusStop.riderIndexIncrement();
+                Passenger.incrementPassengerId();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
