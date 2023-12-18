@@ -1,5 +1,5 @@
 public class Bus implements Runnable {
-    // Count of total bus threads generated
+    // Count of total of bus threads generated
     public static int totBusId = 1;
     // Id of the bus
     int busId;
